@@ -26,7 +26,7 @@ const Slider = ({ setClickedMovie ,setShowDetail}) => {
 
   return (
     <div>
-      <Carousel className='bg-purple-700 rounded-3xl' responsive={responsive}>
+      <Carousel className='bg-purple-500 rounded-3xl' responsive={responsive}>
         <SlideElement src={'https://m.media-amazon.com/images/M/MV5BOTEyNDJhMDAtY2U5ZS00OTMzLTkwODktMjU3MjFkZWVlMGYyXkEyXkFqcGdeQXVyMjkwOTAyMDU@._V1_SX300.jpg'} name={'The Boys'} setClickedMovie={setClickedMovie} setShowDetail={setShowDetail}/>
         <SlideElement src={'https://m.media-amazon.com/images/M/MV5BYmMxZWRiMTgtZjM0Ny00NDQxLWIxYWQtZDdlNDNkOTEzYTdlXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_SX300.jpg'} name={'Thor: Love and Thunder'}
          setClickedMovie={setClickedMovie} setShowDetail={setShowDetail}/>

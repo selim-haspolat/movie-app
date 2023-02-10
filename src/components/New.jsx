@@ -34,7 +34,7 @@ const New = ({setClickedMovie, setShowDetail}) => {
       <h2 className="font-bold text-4xl border-l-8 border-purple-400 pl-2 mb-2 text-purple-700">
         In theaters
       </h2>
-      <Carousel className="bg-purple-700 rounded-3xl" responsive={responsive}>
+      <Carousel className="bg-purple-500 rounded-3xl" responsive={responsive}>
         <div
           className="cursor-pointer w-28 h-40 md:h-[200px] md:w-36 lg:h-[280px] lg:w-48 rounded-3xl bg-purple-100 bg-center bg-no-repeat bg-cover p-4 my-3 mx-auto hover:opacity-80 transition-all"
           style={{
