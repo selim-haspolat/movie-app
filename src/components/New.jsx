@@ -57,7 +57,7 @@ const New = ({setClickedMovie, setShowDetail}) => {
             backgroundImage: `url(https://m.media-amazon.com/images/M/MV5BZTc4MjU0MjMtYTEwNy00YjNlLTk2MGYtMjNlNzFjMmY4MjQ0XkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_SX300.jpg)`,
           }}
           onClick={newSliderClick}
-          value="Knock at the Cabi"
+          value="Knock at the Cabin"
         ></div>
         <div
           className="cursor-pointer w-28 h-40 md:h-[200px] md:w-36 lg:h-[280px] lg:w-48 rounded-3xl bg-purple-100 bg-center bg-no-repeat bg-cover p-4 my-3 mx-auto hover:opacity-80 transition-all"
