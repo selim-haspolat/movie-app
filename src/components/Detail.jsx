@@ -17,7 +17,7 @@ const Detail = ({ detail, setShowDetail }) => {
     imdbRating,
   } = detail;
   return (
-    <div id="detail-div" className="flex gap-3 flex-wrap relative">
+    <div id="detail-div" className="flex gap-3 justify-center flex-wrap relative w-screen sm:w-[820px]">
       <i
         onClick={exitDetail}
         className="fa-solid cursor-pointer fa-xmark fa-2x absolute right-3 top-2 text-red-400 hover:text-red-700 transition-colors"

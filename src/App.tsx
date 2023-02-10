@@ -4,6 +4,7 @@ import Main from "./components/Main";
 import Navbar from "./components/Navbar";
 import Search from "./components/Search";
 import Detail from "./components/Detail";
+import Menu from "./components/Menu";
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -13,8 +14,10 @@ function App() {
   const [clickedMovie, setClickedMovie] = useState("");
   const [detail, setDetail] = useState("");
   const [showDetail, setShowDetail] = useState(false);
+  const [menu, setMenu] = useState(false)
   const input = document.getElementById("search");
   const main = document.getElementById("main");
+  const menuDiv = document.getElementById("menu-div");
 
   const apiKey = "b8ea9965";
   const getData = async () => {
@@ -56,9 +59,15 @@ function App() {
     getDetails();
   }, [clickedMovie]);
 
+  useEffect(() => {
+    menuDiv?.classList.toggle("translate-y-24");
+  }, [menu])
+  
+
   return (
     <div className="overflow-x-hidden h-screen bg-purple-200">
-      <Navbar setShow={setShow} show={show} setHome={setHome} />
+      <Navbar setShow={setShow} show={show} setHome={setHome} setMenu={setMenu} menu={menu}/>
+      <Menu setMovie={setMovie} setHome={setHome}/>
       <Search setMovie={setMovie} />
       <Main movies={movies} home={home} setClickedMovie={setClickedMovie} setShowDetail={setShowDetail}/>
       {showDetail ? (

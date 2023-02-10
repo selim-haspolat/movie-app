@@ -18,6 +18,7 @@ const Search = ({setMovie}) => {
     >
       <form onSubmit={formSubmit} className="mb-[6px] mr-10">
         <input
+        id="main-input"
           type="text"
           className="bg-purple-50 text-purple-700 font-semibold outline-0 px-2 py-1 rounded-md mr-2"
           onChange={movieName}
