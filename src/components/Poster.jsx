@@ -1,18 +1,21 @@
-
-
-const Poster = ({title,year,type,src}) => {
+const Poster = ({ title, year, type, src, i }) => {
   return (
-    <div className='w-52 h-80 rounded-3xl bg-blue-100 bg-center bg-no-repeat bg-cover p-4 mx-5 my-3 text-white flex flex-col justify-between bg-[url("https://i.pinimg.com/550x/37/e5/ba/37e5ba98784e235fd50cf8d176028834.jpg")]'>
+    <div>
+      <div
+        key={i}
+        className={`w-52 h-80 rounded-3xl bg-purple-100 bg-center bg-no-repeat bg-cover p-4 my-3 mx-auto text-white flex flex-col justify-between opacity-90 hover:opacity-100 hover:shadow-xl hover:shadow-indigo-500/50 transition-all`}
+        style={{ backgroundImage: `url(${src})` }}
+      >
         <div>
-            <p>{type}</p>
-            <p>{src}</p>
+          <p className="text-right">{type}</p>
         </div>
         <div>
-            <h2 className='text-2xl font-medium'>{title}</h2>
-            <p className="font-light">{year}</p>
+          <h2 className="text-2xl font-medium">{title}</h2>
+          <p className="font-light">{year}</p>
         </div>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Poster
+export default Poster;
