@@ -44,8 +44,8 @@ function App() {
   useEffect(() => {
     input?.classList.toggle(`skew-x-[90deg]`);
     input?.classList.toggle(`translate-y-12`);
-    main?.classList.toggle("mt-24");
-    main?.classList.toggle("mt-16");
+    main?.classList.toggle("translate-y-24");
+    main?.classList.toggle("translate-y-16");
   }, [show]);
 
   useEffect(() => {

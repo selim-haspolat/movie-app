@@ -17,7 +17,7 @@ const Main = ({ movies, home, setClickedMovie ,setShowDetail}) => {
       {!home ? (
         <div
           id="main"
-          className="mx-5 grid mt-24 grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5"
+          className="mx-5 grid translate-y-24 grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 transition-transform"
         >
           {movies?.map(({ Title, Year, Type, Poster }, i) => {
             return (

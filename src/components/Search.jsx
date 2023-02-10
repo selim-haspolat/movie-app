@@ -14,7 +14,7 @@ const Search = ({setMovie}) => {
   return (
     <div
       id="search"
-      className="fixed bg-purple-200 w-full h-12 m-auto flex justify-end items-end transition-all skew-x-[90deg] z-10"
+      className="fixed bg-opacity-0 w-full h-12 m-auto flex justify-end items-end transition-all duration-300 skew-x-[90deg] z-10"
     >
       <form onSubmit={formSubmit} className="mb-[6px] mr-10">
         <input
