@@ -17,16 +17,16 @@ const Detail = ({ detail, setShowDetail }) => {
     imdbRating,
   } = detail;
   return (
-    <div id="detail-div" className="flex gap-3 relative">
+    <div id="detail-div" className="flex gap-3 flex-wrap relative">
       <i
         onClick={exitDetail}
         className="fa-solid cursor-pointer fa-xmark fa-2x absolute right-3 top-2 text-red-400 hover:text-red-700 transition-colors"
       ></i>
       <div
-        className="w-[300px] h-[450px] bg-center bg-cover bg-no-repeat rounded-3xl"
+        className="w-[200px] h-[320px] sm:w-[300px] sm:h-[450px] bg-center bg-cover bg-no-repeat rounded-3xl mx-auto"
         style={{ backgroundImage: `url(${Poster})` }}
       ></div>
-      <div className="bg-purple-200 p-3 rounded-3xl w-[500px] text-purple-900">
+      <div className="bg-purple-200 p-3 rounded-3xl w-[500px] text-purple-900 mx-auto">
         <div className="flex justify-between items-center">
           <h1 className="text-3xl font-semibold">{Title}</h1>
         </div>
