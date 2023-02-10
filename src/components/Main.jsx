@@ -23,7 +23,7 @@ const Main = ({ movies, home, setClickedMovie ,setShowDetail}) => {
             return (
               <div
                 key={i}
-                className={`w-52 h-80 rounded-3xl bg-purple-100 bg-center bg-no-repeat bg-cover p-4 my-3 mx-auto text-white flex flex-col justify-between opacity-90 hover:opacity-100 hover:shadow-xl hover:shadow-indigo-500/50 transition-all cursor-pointer`}
+                className={`w-52 h-80 rounded-3xl bg-purple-100 bg-center bg-no-repeat bg-cover p-4 my-3 mx-auto text-white flex flex-col justify-between opacity-90 hover:opacity-100 hover:shadow-lg hover:shadow-purple-700/50 transition-all cursor-pointer`}
                 style={{ backgroundImage: `url(${Poster})` }}
                 onClick={searchClick}
                 id="main-cards"
