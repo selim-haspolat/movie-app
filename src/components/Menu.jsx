@@ -12,7 +12,7 @@ const Menu = ({setMovie, setHome}) => {
         setHome(true)
     }
   return (
-    <div id="menu-div" className="w-screen h-[100px] absolute bg-purple-700 -top-[48px] grid grid-rows-2 transition-all duration-300 z-[19]">
+    <div id="menu-div" className="w-screen h-[100px] absolute bg-purple-700 -top-[48px] grid grid-rows-2 transition-all duration-300 z-[19] sm:hidden">
       <div className="flex justify-center items-center">
         <form>
           <input
