@@ -30,7 +30,7 @@ const Menu = ({setMovie, setHome}) => {
       <div className="flex justify-center items-center">
         <a
           href="#"
-          className="px-5 py-1 rounded-md hover:bg-purple-200 hover:text-purple-800 transition-colors focus:bg-purple-200 focus:text-purple-800"
+          className="px-5 py-1 rounded-md text-purple-50 hover:bg-purple-200 hover:text-purple-800 transition-colors focus:bg-purple-200 focus:text-purple-800"
           onClick={changeHome}
         >
           Home

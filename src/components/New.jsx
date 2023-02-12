@@ -7,7 +7,6 @@ const New = ({setClickedMovie, setShowDetail}) => {
   const newSliderClick = (e) => {
     let movieName = e.target.getAttribute('value');
       setClickedMovie(movieName);
-      console.log(movieName);
       setShowDetail(true)
   }
 

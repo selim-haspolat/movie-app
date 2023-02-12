@@ -1,9 +1,12 @@
 import Home from "./Home";
 
-const Main = ({ movies, home, setClickedMovie ,setShowDetail}) => {
+const Main = ({ movies, home, setClickedMovie ,setShowDetail, setFavorite, favorite,favoriteDetail}) => {
   // const detailDiv = document.getElementById("detail-div");
 
   const searchClick = (e) => {
+    if(e.target.classList.contains('fa-heart')){
+      return
+    }
     let movieName = e.target.children[1]?.children[0].innerText;
     movieName ||
       (movieName =
@@ -11,6 +14,23 @@ const Main = ({ movies, home, setClickedMovie ,setShowDetail}) => {
       setClickedMovie(movieName);
       setShowDetail(true)
   };
+
+  const addFavorite = (e) => {
+    if(e.target.classList.contains('text-red-600')){
+      e.target.classList.remove('text-red-600')
+    }else{
+      e.target.classList.add('text-red-600')
+    }
+    let clicked = (e.target.parentElement.parentElement.nextElementSibling.children[0].innerText)
+
+    if(favorite.includes(clicked)){
+      favorite = favorite.filter(e => e != clicked)
+      setFavorite(favorite)
+    }
+    else{
+      setFavorite([...favorite,clicked])
+    }
+  }
 
   return (
     <div>
@@ -20,6 +40,11 @@ const Main = ({ movies, home, setClickedMovie ,setShowDetail}) => {
           className="mx-5 grid translate-y-24 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 transition-transform"
         >
           {movies?.map(({ Title, Year, Type, Poster }, i) => {
+            // if(favorite.includes(Title)){
+            //   let heart = document.getElementById('heart')
+            //   console.log(heart?.classList);
+            //   // heart.classList?.add('text-red-600')
+            // }
             return (
               <div
                 key={i}
@@ -28,8 +53,9 @@ const Main = ({ movies, home, setClickedMovie ,setShowDetail}) => {
                 onClick={searchClick}
                 id="main-cards"
               >
-                <div>
-                  <p className="text-right">{Type}</p>
+                <div className="flex justify-between">
+                  <p id="heart" className="hover:text-red-200" onClick={addFavorite} ><i className={`fas fa-heart text-xl ${favorite.includes(Title) && 'text-red-600'}  transition-colors`}></i></p>
+                  <p>{Type}</p>
                 </div>
                 <div>
                   <h2 className="text-2xl font-medium">{Title}</h2>
@@ -40,7 +66,7 @@ const Main = ({ movies, home, setClickedMovie ,setShowDetail}) => {
           })}
         </div>
       ) : (
-        <Home setClickedMovie={setClickedMovie} setShowDetail={setShowDetail}/>
+        <Home setClickedMovie={setClickedMovie} setShowDetail={setShowDetail} favoriteDetail={favoriteDetail}/>
       )}
     </div>
   );

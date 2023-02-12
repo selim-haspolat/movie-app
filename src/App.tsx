@@ -8,13 +8,15 @@ import Menu from "./components/Menu";
 
 function App() {
   const [movies, setMovies] = useState([]);
+  const [favorite, setFavorite] = useState([]);
+  const [favoriteDetail, setFavoriteDetail] = useState([]);
   const [home, setHome] = useState(true);
   const [show, setShow] = useState<boolean>(false);
   const [movie, setMovie] = useState("");
   const [clickedMovie, setClickedMovie] = useState("");
   const [detail, setDetail] = useState("");
   const [showDetail, setShowDetail] = useState(false);
-  const [menu, setMenu] = useState(false)
+  const [menu, setMenu] = useState(false);
   const input = document.getElementById("search");
   const main = document.getElementById("main");
   const menuDiv = document.getElementById("menu-div");
@@ -32,13 +34,19 @@ function App() {
     }
   };
 
-  const getDetails = async () => {
+  const getDetails = async (movieName: string, n: number) => {
     try {
       let res = await axios(
-        `https://www.omdbapi.com/?t=${clickedMovie}&apikey=${apiKey}`
+        `https://www.omdbapi.com/?t=${movieName}&apikey=${apiKey}`
       );
       let data = res.data;
-      setDetail(data);
+      if (n === 1) {
+        setDetail(data);
+      }
+      else if (n === 2) {
+        let newData = [data.Title, data.Poster]
+        return newData
+      }
     } catch (error) {
       console.log(error);
     }
@@ -56,23 +64,48 @@ function App() {
   }, [movie]);
 
   useEffect(() => {
-    getDetails();
+    getDetails(clickedMovie, 1);
   }, [clickedMovie]);
 
   useEffect(() => {
-    menuDiv?.classList.toggle("translate-y-24");
-  }, [menu])
+    const fetchData = async () => {
+      let data: any = [];
+      data = await Promise.all(favorite.map(async (f) => {
+        return await getDetails(f, 2);
+      }));
+      setFavoriteDetail(data);
+    };
   
+    fetchData();
+  }, [favorite]);
+
+  useEffect(() => {
+    menuDiv?.classList.toggle("translate-y-24");
+  }, [menu]);
 
   return (
     <div className="overflow-x-hidden h-screen bg-purple-200">
-      <Navbar setShow={setShow} show={show} setHome={setHome} setMenu={setMenu} menu={menu}/>
-      <Menu setMovie={setMovie} setHome={setHome}/>
+      <Navbar
+        setShow={setShow}
+        show={show}
+        setHome={setHome}
+        setMenu={setMenu}
+        menu={menu}
+      />
+      <Menu setMovie={setMovie} setHome={setHome} />
       <Search setMovie={setMovie} />
-      <Main movies={movies} home={home} setClickedMovie={setClickedMovie} setShowDetail={setShowDetail}/>
+      <Main
+        movies={movies}
+        home={home}
+        setClickedMovie={setClickedMovie}
+        setShowDetail={setShowDetail}
+        setFavorite={setFavorite}
+        favorite={favorite}
+        favoriteDetail={favoriteDetail}
+      />
       {showDetail ? (
         <div className="w-screen h-screen bg-opacity-70 bg-purple-500 absolute z-[9999] top-0 flex justify-center items-center">
-          <Detail detail={detail} setShowDetail={setShowDetail}/>
+          <Detail detail={detail} setShowDetail={setShowDetail} />
         </div>
       ) : null}
     </div>
